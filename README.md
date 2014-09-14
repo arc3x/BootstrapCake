@@ -2,7 +2,8 @@
 
 BootstrapCake is a shell template for rapidly developing beautiful Bootstrap themed CakePHP applications through the CakePHP console. The default template uses the ugly CakePHP styling but this template makes your app look beautiful by default.
 
-This branch eliminates common programming chores by creating reserved database column 'prefixes'
+This branch eliminates common programming chores by creating reserved database column 'prefixes'. This also includes a construction area.
+
 
 ## 'Prefix' Usage
 
@@ -16,7 +17,12 @@ This branch eliminates common programming chores by creating reserved database c
  - Only .jpg thumbnails supported
  
 
-* Any column named fancytext* (eg 'fancytext_bio') will be treated as a WYSIWYG rich text editor.
+* Any column named fancytext* (eg 'fancytext_bio') will be treated as a WYSIWYG rich text editor. 
+
+## Construction Area
+* in 'core.php' the flags 'construction' and 'construction_countdown' can be set to put the site in construction mode.
+* in the layout 'construction.ctp' a countdown timer can be configured (at the bottom).
+
 
 ## Requirements
 
