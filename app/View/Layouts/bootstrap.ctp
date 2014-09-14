@@ -9,20 +9,30 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+      <!-- Latest compiled and minified JavaScript -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
 	<?php
 		echo $this->Html->meta('icon');
-
-		echo $this->fetch('meta');
+        //echo $this->Html->css('bootstrap_matthew');
+        //echo $this->Html->script('bootstrap_matthew');
+        echo $this->Html->css('admin-styles');
+        echo $this->Html->css('base-styles');
+        echo $this->Html->css('summernote');
+        echo $this->Html->css('summernote-bs3');
+        echo $this->Html->script('summernote.min');
+    	echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 
   	<!-- Latest compiled and minified CSS -->
-  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 
-  	<!-- Latest compiled and minified JavaScript -->
-  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

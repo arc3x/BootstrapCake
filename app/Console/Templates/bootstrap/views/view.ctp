@@ -40,7 +40,7 @@
 								echo "\t\t<li><?php echo \$this->Html->link(__('<span class=\"glyphicon glyphicon-list\"></span>&nbsp&nbsp;List " . $pluralHumanName . "'), array('action' => 'index'), array('escape' => false)); ?> </li>\n";
 								echo "\t\t<li><?php echo \$this->Html->link(__('<span class=\"glyphicon glyphicon-plus\"></span>&nbsp&nbsp;New " . $singularHumanName . "'), array('action' => 'add'), array('escape' => false)); ?> </li>\n";
 
-								$done = array();
+								/*$done = array();
 								foreach ($associations as $type => $data) {
 									foreach ($data as $alias => $details) {
 										if ($details['controller'] != $this->name && !in_array($details['controller'], $done)) {
@@ -49,7 +49,7 @@
 											$done[] = $details['controller'];
 										}
 									}
-								}
+								}*/
 							?>
 							</ul>
 						</div><!-- end body -->
@@ -62,6 +62,7 @@
 				<tbody>
 				<?php
 				foreach ($fields as $field) {
+                    echo "<?php if(!empty(\${$singularVar}['{$modelClass}']['{$field}'])): ?>\n";
 					echo "<tr>\n";
 					$isKey = false;
 					if (!empty($associations['belongsTo'])) {
@@ -75,10 +76,22 @@
 						}
 					}
 					if ($isKey !== true) {
-						echo "\t\t<th><?php echo __('" . Inflector::humanize($field) . "'); ?></th>\n";
-						echo "\t\t<td>\n\t\t\t<?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>\n\t\t\t&nbsp;\n\t\t</td>\n";
+                        if ($schema[$field]['type']=='text' && strpos($field, 'fancytext')===0) {
+                            $new_field=substr($field,10);
+                            echo "\t\t<th><?php echo __('" . Inflector::humanize($new_field) . "'); ?></th>\n";
+                        } else {
+                            echo "\t\t<th><?php echo __('" . Inflector::humanize($field) . "'); ?></th>\n";
+                        }
+
+                        if (strpos($field, 'picture') === 0 || strpos($field, 'thumbnail') === 0) {
+                            $img="\$this->webroot.'img/'.\${$singularVar}['{$modelClass}']['{$field}']";
+                            echo "\t\t<td>\n\t\t\t<img src=\"<?php echo {$img}; ?>\" class=\"img-responsive\">\n\t\t\t&nbsp;\n\t\t</td>\n";
+                        } else {
+                            echo "\t\t<td>\n\t\t\t<?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>\n\t\t\t&nbsp;\n\t\t</td>\n";
+                        }
 					}
 					echo "</tr>\n";
+                    echo "<?php endif; ?>\n";
 				}
 				?>
 				</tbody>

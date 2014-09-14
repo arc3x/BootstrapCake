@@ -38,7 +38,7 @@
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo "<?php echo \$this->Html->link(__('<span class=\"glyphicon glyphicon-plus\"></span>&nbsp;&nbsp;New " . $singularHumanName . "'), array('action' => 'add'), array('escape' => false)); ?>"; ?></li>
-						<?php
+						<?php /*
 							$done = array();
 							foreach ($associations as $type => $data) {
 								foreach ($data as $alias => $details) {
@@ -49,7 +49,7 @@
 									}
 								}
 							}
-						?>
+						*/ ?>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -61,7 +61,14 @@
 				<thead>
 					<tr>
 			<?php foreach ($fields as $field): ?>
-			<th><?php echo "<?php echo \$this->Paginator->sort('{$field}'); ?>"; ?></th>
+            <?php
+                if ($schema[$field]['type']=='text' && strpos($field, 'fancytext')===0):
+                    $new_field=substr($field,10);
+            ?>
+			    <th><?php echo "<?php echo \$this->Paginator->sort('{$new_field}'); ?>"; ?></th>
+            <?php else: ?>
+                <th><?php echo "<?php echo \$this->Paginator->sort('{$field}'); ?>"; ?></th>
+            <?php endif; ?>
 			<?php endforeach; ?>
 			<th class="actions"></th>
 					</tr>

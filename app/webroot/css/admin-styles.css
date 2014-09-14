@@ -1,0 +1,54 @@
+.animate-logo:hover:before, .animate-logo:hover:after {
+    opacity: .8;
+    transition: transform 1.3s ease 0s, opacity 1.2s ease 0s;
+    -webkit-transition: transform 1.3s ease 0s, opacity 1.2s ease 0s;
+}
+
+.animate-logo:before, .animate-logo:after {
+    font-size: 18px;
+    color:#87cefa;
+    opacity: 0;
+    color:dodgerblue;
+    transition: transform 1.3s ease 0s, opacity 1.2s ease 0s;
+    -webkit-transition: transform 1.3s ease 0s, opacity 1.2s ease 0s;
+}
+
+.animate-logo:before {
+    content: "<";
+    padding-right: 5px;
+}
+
+.animate-logo:after {
+    content: ">";
+    padding-left: 5px;
+
+}
+
+
+
+/*
+.animate-logo a:before {
+    color: #428bca;
+    content: "<";
+    font-size: 22px;
+    line-height: 16px;
+    margin-right: 3px;
+    transform: translateX(50px);
+}
+
+.animate-logo a:before, .animate-logo a:after {
+    display: inline-block;
+    opacity: 1;
+    transition: transform 0.3s ease 0s, opacity 0.2s ease 0s;
+}
+
+.animate-logo a:after {
+    color: #428bca;
+    content: ">";
+    font-size: 22px;
+    line-height: 16px;
+    margin-left: 3px;
+    transform: translateX(-50px);
+}
+
+*/

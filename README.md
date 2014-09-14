@@ -2,6 +2,22 @@
 
 BootstrapCake is a shell template for rapidly developing beautiful Bootstrap themed CakePHP applications through the CakePHP console. The default template uses the ugly CakePHP styling but this template makes your app look beautiful by default.
 
+This branch eliminates common programming chores by creating reserved database column 'prefixes'
+
+## 'Prefix' Usage
+
+* Any column named picture* (eg 'picture_profile') will be treated as an image upload.
+ - Controller upload function (make sure to secure for filetypes)
+ - Bootstrap Upload 'browse' in view
+
+
+* Any column named thumbnail* (eg 'thumbnail_profile') will be used to store a thumbnail of an uploaded image (configure in AppController.php).
+ - The 'postfix' of the column name must match. (eg iff 'pictureFish' column exists will 'thumbnailFish' thumbnail be generated.
+ - Only .jpg thumbnails supported
+ 
+
+* Any column named fancytext* (eg 'fancytext_bio') will be treated as a WYSIWYG rich text editor.
+
 ## Requirements
 
 * [CakePHP](http://cakephp.org/) >= 2.3
@@ -10,17 +26,13 @@ BootstrapCake is a shell template for rapidly developing beautiful Bootstrap the
 ## Installation
 
 * Extract the files into the proper directory.
-* Update your App Controller (app/Controller/AppController.php) to use the Bootstrap layout
-
-```
-class AppController extends Controller {
-	public function beforeFilter(){
-		$this->layout = 'bootstrap';
-	}
-}
-```
 
 * Start baking! If you've never used the console, here's a great tutorial: [http://book.cakephp.org/2.0/en/console-and-shells/code-generation-with-bake.html](http://book.cakephp.org/2.0/en/console-and-shells/code-generation-with-bake.html)
 * Make sure you select the bootstrap template when prompted
 
-For more information and screenshots, please visit [http://www.ekoim.com/blog/bootstrap-cakephp-bootstrapcake/](http://www.ekoim.com/blog/bootstrap-cakephp-bootstrapcake/)
+
+## Credits
+* Original BootStrapCake [web](http://www.ekoim.com/blog/bootstrap-cakephp-bootstrapcake/)
+ [git](https://github.com/EKOInternetMarketing/BootstrapCake)
+
+* Original Summernote [web](http://hackerwins.github.io/summernote/)
