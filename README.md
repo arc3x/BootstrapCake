@@ -27,7 +27,6 @@ This branch eliminates common programming chores by creating reserved database c
 ## Requirements
 
 * [CakePHP](http://cakephp.org/) >= 2.3
-* [Bootstrap](http://getbootstrap.com/) >= 3.0
 
 ## Installation
 
