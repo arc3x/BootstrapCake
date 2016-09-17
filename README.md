@@ -5,7 +5,7 @@ BootstrapCake is a shell template for rapidly developing beautiful Bootstrap the
 This branch eliminates common programming chores by creating reserved database column 'prefixes'. This also includes a construction area.
 
 
-## 'Prefix' Usage
+## 'Prefix' Usage (SQL column name conventions)
 
 * Any column named picture* (eg 'picture_profile') will be treated as an image upload.
  - Controller upload function (make sure to secure for filetypes)
